@@ -4,7 +4,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -19,16 +18,15 @@ import java.util.ArrayList;
 public class SwaggerConfig {
 	
 	@Bean
-    public Docket ticketSystemAPI() {
-        return new Docket(DocumentationType.SWAGGER_2)
+	public Docket ticketApi() {
+		return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("br.com.ticket"))
-                .paths(PathSelectors.any())
                 .build()
                 .apiInfo(metaInfo());
     }
 
-    private ApiInfo metaInfo() {
+	private ApiInfo metaInfo() {
 
         @SuppressWarnings("rawtypes")
 		ApiInfo apiInfo = new ApiInfo(
@@ -41,9 +39,7 @@ public class SwaggerConfig {
                 "Apache License Version 2.0",
                 "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
         );
-        
-        
-
+       
         return apiInfo;
     }
 

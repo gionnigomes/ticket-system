@@ -26,7 +26,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/analysts")
+@RequestMapping("/im-day")
 @Api(value = "Ticket System API")
 @CrossOrigin(origins = "*")
 public class TicketController {
@@ -41,12 +41,6 @@ public class TicketController {
 	public TicketController() {
 
 	}
-	
-	@RequestMapping ("/docs")
-	@GetMapping
-    public String home() {
-	return "redirect:/swagger-ui.html";
-    }
 	
 	@GetMapping
 	@ApiOperation(value = "Returns full list of analysts")
